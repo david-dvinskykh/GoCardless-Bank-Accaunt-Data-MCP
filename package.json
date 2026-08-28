@@ -1,0 +1,30 @@
+{
+  "name": "gocardless-bank-account-data-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the GoCardless Bank Account Data API (v2): connect a bank account and read balances, details and transaction history.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "gocardless-bank-account-data-mcp": "build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', 0o755)\"",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test test/*.test.js",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "typescript": "5.9.3"
+  }
+}
